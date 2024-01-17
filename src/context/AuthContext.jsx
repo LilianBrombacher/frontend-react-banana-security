@@ -7,18 +7,23 @@ export function AuthContextProvider ({ children } ) {
 
     const login = () => {
         toggleIsAuth(true);
+        console.log('Gebruiker is ingelogd')
     };
 
     const logout = () => {
         toggleIsAuth(false);
+        console.log('Gebruiker is uitgelogd')
     };
     const data = {
         username: 'testuser',
         email: 'testuser@gmail.com',
+        login: login,
+        logout: logout,
+        isAuth: isAuth,
     };
 
     return (
-        <AuthContext.Provider value={{ isAuth, login, logout }}>
+        <AuthContext.Provider value={data}>
             {children}
         </AuthContext.Provider>
     );
