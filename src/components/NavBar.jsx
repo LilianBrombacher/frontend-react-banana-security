@@ -33,12 +33,12 @@ function NavBar() {
           Log in
         </button>
         }
-            <button
+        <button
           type = "button"
             onClick={() => navigate("/signup")}
             >
           registreren
-          </button>
+        </button>
 
         {isAuth === true &&
         <button
