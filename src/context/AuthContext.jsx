@@ -3,19 +3,22 @@ import React, {createContext, useState} from 'react';
 export const AuthContext = createContext({});
 
 export function AuthContextProvider ({ children } ) {
-    const [isAuth, toggleIsAuth] = useState(false);
+    const [isAuth, setIsAuth] = useState({
+        isAuth: false,
+        user: null,
+    });
 
     const login = () => {
-        toggleIsAuth(true);
+        setIsAuth(true);
         console.log('Gebruiker is ingelogd')
     };
 
     const logout = () => {
-        toggleIsAuth(false);
+        setIsAuth(false);
         console.log('Gebruiker is uitgelogd')
     };
     const data = {
-        username: 'testuser',
+        user: 'testuser',
         email: 'testuser@gmail.com',
         login: login,
         logout: logout,
