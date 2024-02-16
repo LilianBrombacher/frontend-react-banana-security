@@ -5,7 +5,7 @@ import { AuthContext } from '../context/AuthContext';
 
 function NavBar() {
   const navigate = useNavigate();
-  const {isAuth, logout, login} = useContext(AuthContext)
+  const {isAuth, logout,} = useContext(AuthContext)
 
   useEffect(() => {
     console.log(isAuth)
@@ -28,7 +28,7 @@ function NavBar() {
         {isAuth === false &&
         <button
           type="button"
-          onClick={() => login(navigate("/profile")) }
+          onClick={() => navigate("/signin") }
         >
           Log in
         </button>

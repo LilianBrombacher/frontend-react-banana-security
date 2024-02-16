@@ -1,7 +1,8 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import { Link } from 'react-router-dom';
 import axios from "axios";
 import {useNavigate} from "react-router-dom";
+import {AuthContext} from "../context/AuthContext";
 
 
 function SignUp() {
@@ -16,6 +17,8 @@ function SignUp() {
         console.log(name, email, password);
         signUp()
     }
+
+
 
     async function signUp() {
         console.log('voor post request')

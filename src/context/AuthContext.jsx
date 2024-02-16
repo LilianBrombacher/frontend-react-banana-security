@@ -19,11 +19,12 @@ export function AuthContextProvider ({ children } ) {
     useEffect(() => {
         //haal de JWT op uit de local storage
         const token = localStorage.getItem('token');
-
+        console.log(token)
         //als er wel een token is, haal dan opnieuw de gebruikersdata op
         if (token && isTokenValid(token)) {
             void login (token);
         } else {
+            localStorage.clear()
             //als er geen token is doen we niks en zetten we de status op 'done'
             setIsAuth({
                 isAuth: false,
@@ -82,11 +83,10 @@ export function AuthContextProvider ({ children } ) {
     }
 
     const contextData = {
-        isAuth: isAuth.isAuth,
-        logout: logout,
-        login: login,
+        ...isAuth,
+        login,
+        logout
     };
-
 
         // const login = () => {
     //     setIsAuth(true);
